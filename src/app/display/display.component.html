@@ -1,0 +1,92 @@
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h2>Table Caption</h2>
+<p>To add a caption to a table, use the caption tag.</p>
+
+<table style="width:100%">
+  <caption>Task</caption>
+  <tr *ngFor="let hero of todo">
+  <td>
+   {{hero.task}}
+  </td>
+  <td>{{hero.status}}</td>
+  <td><input type="submit" (click)="onDelete(hero.id)" [disabled]="varButton"  value="Delete"  class="field-style field-split align-left "/></td>
+  <td><input type="submit" (click)="onUpdate(hero.id)" [disabled]="varButton"  value="Update"  class="field-style field-split align-left "/></td>
+  </tr>
+  
+</table>
+
+</body>
+
+<h2>Add Todo</h2>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+
+
+
+<h3>Contact Form</h3>
+
+<div class="container" >
+   <form *ngIf="todo" name="form" class="form-style-9" [formGroup]="todoDataForm" > 
+    <label for="fname">Task</label>
+    <input type="text"  name="task" placeholder={{todo.task}} formControlName="task">
+
+    <label for="lname">Status</label>
+    <input type="text"  name="status" placeholder={{todo.status}} formControlName="status">
+    <input type="submit"  (click)="onSubmit(todo)" value="Add">
+  </form>
+</div>
+
+
+
+
+</html>
+
